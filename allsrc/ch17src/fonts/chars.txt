@@ -1,0 +1,16 @@
+Characters 32-255. Useful for image editing software.
+ !"#$%&'()*+,-./
+0123456789:;<=>?
+@ABCDEFGHIJKLMNO
+PQRSTUVWXYZ[\]^_
+`abcdefghijklmno
+pqrstuvwxyz{|}~
+€?‚ƒ„…†‡‰‹??
+?‘’“”•–—™›?
+ ΅Ά£¤¥¦§¨©ª«¬­®―
+°±²³΄µ¶·ΈΉΊ»Ό½ΎΏ
+ΐΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟ
+ΠΡÒΣΤΥΦΧΨΩΪΫάέήί
+ΰαβγδεζηθικλμνξο
+πρςστυφχψωϊϋόύώÿ
+

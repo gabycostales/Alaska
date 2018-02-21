@@ -1,0 +1,20 @@
+# Map file for tile-based game
+# (Lines that start with '#' are comments)
+# The tiles are:
+#   (Space) Empty tile
+#   A..Z    Tiles A through Z
+#   !       Campfire
+#   *       Door
+#   1       crow
+#   2       bunny
+#   3       wolf
+                                                                                                                                                                                  
+                                                                                                                           L L     L!L
+                                                                               1        RSRSRS                             LLL LLL LLL  
+                                                       RSRSRS                               RSRS                           LLLLLLLLLLLLLLL 
+UUUU1                                   1                       RSRSRS   EE     RSRSRS      EE                           1 LLLLLLLLLLLLLLL
+XVXV                                                                     EE                 EE                             JLLLLLLLLLLLLLL
+XVXV                       EEE EEE        E        MM                   EEE                 EE                               LLLLLLLLLLLLLL     
+XVXV                      EEEE EEEE      EE     NOMDDMNO      22         EEEE              3 EE                            3*LLLLLLLLLLLLLL
+ABBCACBCCAACACAABBCACABBBAACACACABBBBAACACABABBCDDDDDDDDONMOOONMNMONMONNOMNOMNMNOMONOMMNOMNOMNMONMONONNMONMONMONMNMNMNONMNMONMNOMNMONMNOONMNO
+DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD

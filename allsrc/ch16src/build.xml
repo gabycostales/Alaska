@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+
+<!-- ===================================================================== -->
+<!-- Developing Games in Java                                              -->
+<!-- Chapter 16: Optimization                                              -->
+<!-- Ant 1.5 build file                                                    -->
+<!-- ===================================================================== -->
+
+<project name="chap16 - Optimization" default="build" basedir=".">
+
+    <property name="srcdir" value="src"/>
+    <property name="destdir" value="build"/>
+    <property name="docdir" value="doc"/>
+
+    <!-- Allow user to override properties without editing this file -->
+    <property file="${user.home}/.ant.properties" />
+
+
+    <!-- ================================================================= -->
+    <!-- Compile                                                           -->
+    <!-- ================================================================= -->
+    <target name="compile" description="Compiles the source code for this chapter">
+
+        <mkdir dir="${destdir}"/>
+
+        <javac srcdir="${srcdir}"
+               destdir="${destdir}"
+               debug="on" >
+
+            <include name="**/*.java"/>
+        </javac>
+
+    </target>
+
+
+    <!-- ================================================================= -->
+    <!-- Clean                                                             -->
+    <!-- ================================================================= -->
+    <target name="clean" description="Deletes the build directory for this chapter">
+        <delete dir="${destdir}" failonerror="false" />
+    </target>
+
+
+    <!-- =================================================================== -->
+    <!-- Build                                                               -->
+    <!-- =================================================================== -->
+    <target name="build" depends="clean, compile"
+        description="Performs a clean build of the source code for this chapter"/>
+
+
+    <!-- =================================================================== -->
+    <!-- Run Targets                                                         -->
+    <!-- =================================================================== -->
+    <target name="run-TrigTableTest" description="Runs TrigTableTest">
+        <java classname="TrigTableTest"
+             fork="true"
+             dir="${destdir}"
+             failonerror="true"
+             >
+        </java>
+    </target>
+
+    <target name="run-GranularityTest" description="Runs GranularityTest">
+        <java classname="GranularityTest"
+              fork="true"
+              dir="${destdir}"
+              failonerror="true"
+              >
+        </java>
+    </target>
+
+    <target name="run-MemMonitorTest" description="Runs MemMonitorTest">
+        <java classname="MemMonitorTest"
+              fork="true"
+              dir="${destdir}"
+              failonerror="true"
+              >
+              <!-- start heap size at 64m -->
+              <jvmarg value="-Xms64m"/>
+              <jvmarg value="-Xmn4m"/>
+              <!--<jvmarg value="-Xincgc"/>-->
+              <!--<jvmarg value="-XX:+UseConcMarkSweepGC "/>-->
+              <!--<jvmarg value="-XX:+UseParallelGC"/>-->
+              <!--<jvmarg value="-XX:+UseParNewGC"/>-->
+              <!--<jvmarg value="-Xaprof"/>-->
+              <jvmarg value="-verbose:gc"/>
+              <jvmarg value="-XX:+PrintGCDetails"/>
+        </java>
+    </target>
+
+    <target name="run-MemMonitorTest-lowres" description="Runs MemMonitorTest (low resolution mode)">
+        <java classname="MemMonitorTest"
+              fork="true"
+              dir="${destdir}"
+              failonerror="true"
+              >
+              <!-- start heap size at 64m -->
+              <jvmarg value="-Xms64m"/>
+              <jvmarg value="-Xmn4m"/>
+              <!--<jvmarg value="-Xincgc"/>-->
+              <!--<jvmarg value="-XX:+UseConcMarkSweepGC "/>-->
+              <!--<jvmarg value="-XX:+UseParallelGC"/>-->
+              <!--<jvmarg value="-XX:+UseParNewGC"/>-->
+              <!--<jvmarg value="-Xaprof"/>-->
+              <jvmarg value="-verbose:gc"/>
+              <jvmarg value="-XX:+PrintGCDetails"/>
+
+              <!-- use low resolution for slower CPUs-->
+              <arg value="-lowres"/>
+        </java>
+    </target>
+
+
+    <!-- =================================================================== -->
+    <!-- Javadoc                                                             -->
+    <!-- =================================================================== -->
+    <target name="javadoc" description="Creates API documentation (JavaDocs) for this chapter">
+
+        <delete dir="${docdir}" failonerror="false"/>
+        <mkdir dir="${docdir}"/>
+
+        <javadoc
+            destdir="${docdir}"
+            access="private"
+            author="true"
+            version="true"
+            use="true">
+
+            <fileset dir="${srcdir}">
+                <include name="*.java"/>
+            </fileset>
+
+            <link href="http://java.sun.com/j2se/1.4.2/docs/api/"/>
+
+        </javadoc>
+
+    </target>
+
+
+</project>
